@@ -1,0 +1,176 @@
+.attachment-container {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  z-index: 1000;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Trigger Button */
+.attachment-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(22, 24, 38, 0.75);
+  color: #94a3b8;
+  backdrop-filter: blur(16px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.attachment-btn:hover {
+  background: rgba(30, 33, 50, 0.9);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #f8fafc;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.25);
+  transform: translateY(-1px);
+}
+
+.attachment-btn.active {
+  border-color: #a855f7;
+  color: #a855f7;
+}
+
+/* Button when files are attached */
+.attachment-btn.has-attachments {
+  border-color: rgba(168, 85, 247, 0.6);
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.12);
+}
+
+.attachment-count-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(236, 72, 153, 0.6);
+}
+
+.attachment-badge-pulse {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+  box-shadow: 0 0 6px rgba(236, 72, 153, 0.8);
+}
+
+/* Options Dropdown */
+.attachment-options {
+  position: absolute;
+  top: 54px;
+  left: 0;
+  width: 210px;
+  padding: 8px;
+  background: rgba(18, 20, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 20px rgba(168, 85, 247, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: slideDropdown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.attachment-header {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #64748b;
+  padding: 6px 8px 4px;
+}
+
+/* Individual File Option */
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.option-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+}
+
+.option-item.completed {
+  color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.item-icon {
+  color: #94a3b8;
+  transition: color 0.2s ease;
+}
+
+.option-item:hover .item-icon {
+  color: #ec4899;
+}
+
+.check-icon {
+  margin-left: auto;
+  color: #10b981;
+}
+
+.item-text-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.item-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item-subtext {
+  font-size: 0.72rem;
+  color: #a855f7;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.85;
+}
+
+/* Hidden File Inputs */
+.attachment-options input[type="file"] {
+  display: none;
+}
