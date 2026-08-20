@@ -19,6 +19,9 @@ dist-ssr/
 *.local
 .vite/
 
+# Vercel
+.vercel/
+
 # IDE / OS files
 .vscode/
 .idea/

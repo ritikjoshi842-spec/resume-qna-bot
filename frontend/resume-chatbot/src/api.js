@@ -27,7 +27,10 @@ export async function sendChatMessage(
     }
   }
 
-  const response = await fetch("http://localhost:8000/get-questions", {
+  const rawApiUrl = import.meta.env.VITE_API_URL || "http://localhost:8000";
+  const apiUrl = rawApiUrl.replace(/\/$/, "");
+
+  const response = await fetch(`${apiUrl}/get-questions`, {
     method: "POST",
     body: formData,
   });
